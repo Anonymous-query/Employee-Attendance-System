@@ -1,0 +1,17 @@
+.employee-edit-link, .employee-delete-link{
+    padding: 4px;
+    cursor: pointer;
+}
+.emplyee-add-button{
+    text-align: end;
+}
+.emplyee-add-button .add-employee{
+    padding: 2px 12px;
+    border-radius: 8px;
+    box-shadow: none;
+    background: transparent;
+}
+
+#employee_details tbody tr td{
+    text-align: center;
+}

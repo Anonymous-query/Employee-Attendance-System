@@ -1,0 +1,78 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}
+    Employee Attendance
+{% endblock title %}
+
+{% block extra_head %}
+  <link rel="stylesheet" type="text/css" media="all" href="{% static 'css/employee_attendance.css' %}" />
+{% endblock %}
+
+{% block extra_js %}
+  <script src="{% static 'js/employee_attendance.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Employee Attendance View</h2>
+  <div class="emplyee-attendance-button">
+    <button type="button" class="today-employee-attendance" id="today-employee-attendance">
+      View Today's attendance
+    </button>
+    <button type="button" class="all-employee-attendance" id="all-employee-attendance">
+      All attendance
+    </button>
+  </div>
+  <table id="employee_attendance_table" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+      <tr>
+        <th data-data="index">Sr. No.</th>
+        <th data-data="name">Name</th>
+        <th data-data="is_present">Is Present</th>
+        <th data-data="date">Date</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+
+<div class="modal fade" id="employeeAttendanceModal" tabindex="-1" role="dialog" aria-labelledby="employeeAttendancModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="employeeAttendancModalLabel">Attendance Update</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="edit-contact-form" role="form">
+          <div class="messages"></div>
+          <div class="controls">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="edit_form_name">Name</label>
+                  <label id="edit_form_name"></label>
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="is_present_checkbox">
+                  <label class="form-check-label" for="is_present_checkbox">Is Present</label>
+                </div>
+                </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="updateEmployeeButton">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
